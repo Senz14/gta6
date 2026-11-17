@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solmar City — an open-world crime game</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; background: #14101f; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  #wrap { position: relative; line-height: 0; }
+  canvas {
+    width: 1280px; height: 720px; max-width: 100vw; max-height: 100vh;
+    background: #7fae5a; border-radius: 6px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    image-rendering: auto; cursor: crosshair;
+  }
+  #fallback {
+    position: absolute; inset: 0; display: none;
+    align-items: center; justify-content: center; text-align: center;
+    color: #fff; font-size: 16px; line-height: 1.6; padding: 40px;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+  <div id="fallback">Solmar City needs JavaScript and a modern desktop browser.<br>Open this file in Chrome and allow scripts.</div>
+</div>
+<noscript><p style="color:#fff">Solmar City needs JavaScript enabled.</p></noscript>
+<script>
+  window.addEventListener('error', function (e) {
+    document.getElementById('fallback').style.display = 'flex';
+  }, true);
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
